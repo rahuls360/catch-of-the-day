@@ -1,10 +1,13 @@
 import React from "react";
 
 class EditFormComponent extends React.Component {
-  handleChange = (event) => {
-    console.log(event.currentTarget.value);
-    console.log("DATA CHANGING!");
-  }
+  handleChange = event => {
+    const currentFish = {
+      ...this.props.fish,
+      [event.currentTarget.name]: event.currentTarget.value
+    };
+    this.props.updateFish(this.props.index, currentFish);
+  };
   render() {
     return (
       <div className="fish-edit">
@@ -24,8 +27,12 @@ class EditFormComponent extends React.Component {
           placeholder="Price"
           onChange={this.handleChange}
         />
-        <select name="status" value={this.props.fish.status} required
-        onChange={this.handleChange}>
+        <select
+          name="status"
+          value={this.props.fish.status}
+          required
+          onChange={this.handleChange}
+        >
           <option value="">Select Status</option>
           <option value="available">In Stock</option>
           <option value="unavailable">Sold out</option>
@@ -45,6 +52,9 @@ class EditFormComponent extends React.Component {
           placeholder="Image"
           onChange={this.handleChange}
         />
+        <button onClick={() => this.props.deleteFish(this.props.index)}>
+          Remove Fish
+        </button>
       </div>
     );
   }
