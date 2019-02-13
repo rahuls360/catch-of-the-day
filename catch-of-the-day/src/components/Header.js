@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // stateless functional component
 const Header = ({ tagLine, taste }) => (
@@ -18,5 +19,10 @@ const Header = ({ tagLine, taste }) => (
     </h3>
   </header>
 );
+
+Header.propTypes = {
+  tagline: PropTypes.string,
+  taste: PropTypes.string
+};
 
 export default Header;
