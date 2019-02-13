@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import AddFish from "./AddFish";
 import EditFormComponent from "./EditFormComponent";
+import Login from './Login';
 
 class Inventory extends React.Component {
   static propTypes = {
@@ -12,7 +13,12 @@ class Inventory extends React.Component {
     loadSampleFishes: PropTypes.func
   };
 
+  authenticate = (provider) => {
+    alert(provider);
+  }
+
   render() {
+    return <Login authenticate={this.authenticate}></Login>
     return (
       <div className="inventory">
         <p>Inventory!</p>
