@@ -2,9 +2,9 @@ import Rebase from "re-base";
 import firebase from "firebase";
 
 const firebaseApp = firebase.initializeApp({
-  apiKey: "AIzaSyCj5vngYIFeumD29cs1MBQbK1e00EBsZjo",
-  authDomain: "catchoftheday-rahuls360.firebaseapp.com",
-  databaseURL: "https://catchoftheday-rahuls360.firebaseio.com",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DB_URL,
   projectId: "catchoftheday-rahuls360",
   storageBucket: "",
   messagingSenderId: "810992660213"
